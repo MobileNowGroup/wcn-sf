@@ -63,8 +63,8 @@
                 var messages = response.data;
                 Object.keys(messages).forEach((key) => {
                     var option = document.createElement("option");
-                    option.text = messages[key];
-                    option.value = key;
+                    option.text = key;
+                    option.value = messages[key];
                     select.add(option);
                 })
 
