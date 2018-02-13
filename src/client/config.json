@@ -1,0 +1,94 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData": {
+       "icon": "images/icon.png",
+       "iconSmall": "images/iconSmall.png",
+       "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+       "en-US": {
+           "name": "Wechat Now Test",
+           "description": "Wechat Now test description"
+       }
+    },
+    "arguments": {
+        "execute": {
+            "inArguments": [
+                {
+                    "openid": "{{InteractionDefaults.OpenID}}"
+                },
+                {
+                    "type": "text"
+                },
+                {
+                    "message": "{{Contact.Default.Message}}"
+                }
+            ],
+            "outArguments": [
+                {
+                }
+            ],
+            "url": "https://bryan.test.shanghai.bluecomcn.com/RESTAPI"
+        }
+    },
+    "configurationArguments": {
+       "applicationExtensionKey": "6c7ecff7-87d1-498c-be18-7d0fa652042a",
+       "save": {
+           "url": "https://bryan.test.shanghai.bluecomcn.com/REST.php?openid=12345&message=save"
+       },
+       "publish": {
+           "url": "https://bryan.test.shanghai.bluecomcn.com/REST.php?openid=12345&message=publish"
+       },
+       "validate": {
+           "url": "https://bryan.test.shanghai.bluecomcn.com/REST.php?openid=12345&message=validate"
+       },
+       "stop": {
+           "url": "https://bryan.test.shanghai.bluecomcn.com/REST.php?openid=12345&message=stop"
+       }
+    },
+    "wizardSteps": [
+       { "label": "Step 1", "key": "step1" },
+       { "label": "Step 2", "key": "step2" },
+       { "label": "Step 3", "key": "step3" },
+       { "label": "Step 4", "key": "step4", "active": false }
+    ],
+    "userInterfaces": {
+       "configModal": {
+           "height": 300,
+           "width": 500,
+           "fullscreen": false
+       }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "inArguments": [
+                    {
+                        "phoneNumber": {
+                            "dataType": "Phone",
+                            "isNullable": false,
+                            "direction": "in"   
+                        }
+                    },
+                    {
+                        "emailAddress": {
+                            "dataType": "Email",
+                            "isNullable": false,
+                            "direction": "in"
+                        }
+                    }
+                ],
+                "outArguments": [
+                    {
+                        "foundSignupDate": {
+                            "dataType": "Date",
+                            "direction": "out",
+                            "access": "visible"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

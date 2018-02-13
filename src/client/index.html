@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Custom Journey Builder Activity</title>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.17.1/axios.min.js"></script>
+    <script type="text/javascript" src="js/require.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var config = {
+                baseUrl: ''
+            };
+
+            var dependencies = [
+                'customActivity'
+            ];
+
+            require(config, dependencies);
+        })();
+    </script>
+
+    <!--Styles-->
+    <style type="text/css">
+        body {
+            padding: 20px;
+            margin: 0;
+        }
+
+        .step {
+            display: none;
+        }
+
+        #step1 {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="step1" class="step">
+
+        Select your Wechat message:
+        <select id="select1">
+            <option value="">Select an option</option>
+        </select>
+    </div>
+    <div id="step2" class="step">
+        Customize your message
+    </div>
+    <div id="step3" class="step">
+        Preview and confirm:
+        <div id="message"></div>
+    </div>
+    <script>
+        axios.get('/api/messages')
+            .then(function (response) {
+                var select = document.getElementById('select1');
+                var messages = response.data;
+                Object.keys(messages).forEach((key) => {
+                    var option = document.createElement("option");
+                    option.text = messages[key];
+                    option.value = key;
+                    select.add(option);
+                })
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    </script>
+</body>
+
+</html>
