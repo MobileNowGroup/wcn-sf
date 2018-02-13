@@ -8,12 +8,12 @@ const router = new Router()
 
 router.get('/api/messages', (ctx, next) => {
   const messages = {
-    WelcomeMessage: 'Welcome to the testing of SF and WCN!',
-    ThankYouMessage: "Thank you for your order. We'll process your order soon.",
-    SpecialOfferMessage: 'Sales! At most 70% off! Check out our WeChat store!',
-    AccountUpdatedMessage:
+    'Welcome Message': 'Welcome to the testing of SF and WCN!',
+    'Thank You Message': "Thank you for your order. We'll process your order soon.",
+    'Special Offer Message': 'Sales! At most 70% off! Check out our WeChat store!',
+    'Account Updated Message':
       'Your account info is updated. If it is not updated by you, please contact our Customer Service Representatives.',
-    MembershipUpgradeMessage:
+    'Membership Upgrade Message':
       'Congratulations! You membership card is upgraded to PLATINUM! Check out the benefits now!'
   }
   ctx.body = messages
